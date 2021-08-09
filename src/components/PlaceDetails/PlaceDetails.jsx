@@ -11,12 +11,13 @@ import {
 } from "@material-ui/core";
 import LocationOnIcon from "@material-ui/icons/LocationOn";
 import PhoneIcon from "@material-ui/icons/Phone";
-import Rating from "@material-ui/lab";
+import Rating from "@material-ui/lab/Rating";
 import useStyles from "./styles";
 import { height } from "@material-ui/system";
 
 const PlaceDetails = ({ place }) => {
   const classes = useStyles();
+
   return (
     <Card elevation={6}>
       <CardMedia
@@ -32,6 +33,12 @@ const PlaceDetails = ({ place }) => {
         <Typography gutterBottom variant="h5">
           {place.name}
         </Typography>
+        <Box display="flex" justifyContent="space-between">
+          <Rating value={Number(place.rating)} readOnly />
+          <Typography variant="subtitle1">
+            Out of {place.num_reviews} reviews
+          </Typography>
+        </Box>
         <Box display="flex" justifyContent="space-between">
           <Typography variant="subtitle1">Preço</Typography>
           <Typography gutterBottom variant="subtitle1">
